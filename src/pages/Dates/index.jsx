@@ -65,16 +65,19 @@ const Calendar = () => {
   };
 
   const renderMonthLabel = (month) => {
-    return <span className="month-label text-justify border text-black">{month.format('MMMM YYYY')}</span>;
+    return <span className="month-label text-lg mx-4 text-justify text-black">{month.format('MMMM YYYY')}</span>;
   };
 
   return (
-    <section className="calendar">
-      <header className="header">
-        <DayNames />
-      </header>
-      {renderMonths()}
-    </section>
+    <div className="dates w-screen absolute top-0 bottom-0 left-0 right-0">
+        <section className="calendar">
+        <header className="header">
+            <DayNames />
+        </header>
+        {renderMonths()}
+        </section>
+
+    </div>
   );
 };
 

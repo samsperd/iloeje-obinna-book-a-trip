@@ -37,13 +37,13 @@ const FlightListings = () => {
           </div>
           <div className="flight-details my-3 text-black flex justify-between">
             <div className="in-and-out border flex items-center gap-1">
-            <MdOutlineCompareArrows className='icon p-2 bg-slate-200 rounded' size={'35px'} />
-              <h5 className='font-semibold'>Sat, 12 Mar</h5>
+            <MdOutlineCompareArrows className='icon p-2 bg-slate-200 rounded' size={'30px'} />
+              <h5 className='font-semibold text-[10px]'>Sat, 12 Mar</h5>
 
             </div>
             <div className="in-and-out border flex items-center">
-            <MdAirlineSeatReclineNormal className='icon' size={'25px'} />
-              <h6 className='text-xs font-semibold'>3 Adults &#183; 2 Children &#183; 1 infant</h6>
+            <MdAirlineSeatReclineNormal className='icon' size={'15px'} />
+              <h6 className='text-[8px] text-justify font-semibold'>3 Adults &#183; 2 Children &#183; 1 infant</h6>
 
             </div>
           </div>
@@ -57,14 +57,14 @@ const FlightListings = () => {
             </div>
             
             <div className="flight-icons pt-2 flex items-center">
-              <span className='font-bold text-md border w-[70%] text-black'> 06: 45 am</span>
+              <span className='font-bold text-sm border w-[70%] text-black'> 06: 45 am</span>
               <div className="circle rounded-full p-2 border-2"></div>
               <div className="line w-full border h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
                 <IoIosAirplane className='icon -mt-3' size={'25px'} />
                 <span className='font-light text-xs'>Non-stop</span>
               </div>
               <div className="circle rounded-full p-2 border-2"></div>
-              <span className='font-bold text-md w-[70%] text-black'> 06: 45 am</span>
+              <span className='font-bold text-sm w-[70%] text-black'> 06: 45 am</span>
               
             </div>
             <div className="flight-icons px-3 border my-1 flex text-blue-950 justify-between items-center">
@@ -73,7 +73,7 @@ const FlightListings = () => {
               
             </div>
 
-            <div className="flight-details my-3 text-black flex justify-between">
+            <div className="flight-details my-5 text-black flex justify-between">
               <div className="in-and-out border flex items-center gap-1">
                 <h6 className='text-xs font-normal text-gray-500'>Kenya Airways &#183; Economy</h6>
 
@@ -83,7 +83,7 @@ const FlightListings = () => {
 
               </div>
             </div>
-            <div className="btn">
+            <div className="btn mt-8">
               <Link to={'/makepayment'} className='bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded'>
                 Make Payment
               </Link>

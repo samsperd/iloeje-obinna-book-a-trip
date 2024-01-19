@@ -33,7 +33,7 @@ const Week = (props) => {
   }, [props]); // Make sure to include all dependencies that are being used inside the effect
 
   return (
-    <div className="row week text-black border" key={days.length > 0 ? days[0].key : null}>
+    <div className="row week text-black " key={days.length > 0 ? days[0].key : null}>
       {days}
     </div>
   );
