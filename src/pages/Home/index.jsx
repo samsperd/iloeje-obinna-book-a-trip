@@ -3,30 +3,40 @@ import Navbar from '../../components/Navbar';
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { MdAirlineSeatReclineNormal } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
+import airports from './../../data/airports.json';
+import { Link } from 'react-router-dom';
+import FooterButton from '../../components/FooterButton';
+import Layout from '../../layout';
 
 const Home = () => {
   return (
-    <>
+    <Layout bottom={"Search"}>
     <Navbar title={"Search Flight"}></Navbar>
 
     <div className="flex flex-col text-justify gap-5 w-full">
       <div className="flex flex-col gap-5">
 
-        <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <FaPlaneDeparture className='icon' size={'25px'} />
-          <input className='w-full px-1 outline-none appearance-none border-none bg-white' type="text" name='from' placeholder='From' />
+        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+          <FaPlaneDeparture className='icon' size={'20px'} />
+          <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
+            From
+          </div>
 
-        </div>
-        <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <FaPlaneArrival className='icon' size={'25px'} />
-          <input className='w-full px-1 outline-none appearance-none border-none bg-white' type="text" name='to' placeholder='To' />
+        </button>
+        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+          <FaPlaneArrival className='icon' size={'20px'} />
+          <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
+            To
+          </div>
 
-        </div>
-        <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <CiCalendarDate className='icon' size={'25px'} />
-          <input className='w-full px-1 outline-none appearance-none border-none bg-white' type="text" name='date' placeholder='Departure' />
-
-        </div>
+        </button>
+        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+          <CiCalendarDate className='icon' size={'20px'} />
+          <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
+            Departure
+          </div>
+          
+        </button>
 
       </div>
 
@@ -65,7 +75,8 @@ const Home = () => {
       </div>
     </div>
 
-</>
+    {/* <FooterButton title={"Search"} /> */}
+</Layout>
 
   )
 }

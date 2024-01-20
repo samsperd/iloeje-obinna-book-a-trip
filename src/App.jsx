@@ -3,7 +3,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Layout from "./layout";
 import Home from "./pages/Home";
 import FlightListings from './pages/FlightListings';
 import MakePayment from './pages/MakePayment';
@@ -31,12 +30,9 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <Layout>
       
 
       <RouterProvider router={router} />
-
-    </Layout>
 
   )
 }
