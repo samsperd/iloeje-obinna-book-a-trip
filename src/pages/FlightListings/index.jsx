@@ -4,16 +4,17 @@ import { IoIosAirplane } from 'react-icons/io'
 import { MdAirlineSeatReclineNormal, MdCompareArrows, MdOutlineCompareArrows } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import Layout from '../../layout'
+import Flights from '../../data/flight-listing.json';
 
 const FlightListings = () => {
   return (
     <Layout>
       <Navbar title={'Flight Listings'}></Navbar>
       <div className="content">
-        <div className="heading-bar border p-2 bg-white rounded-xl">
+        <div className="heading-bar p-2 bg-white rounded-xl">
           <div className="flight-icons px-3 py-2 flex items-center">
             <div className="circle rounded-full p-2 border-2"></div>
-            <div className="line w-full border h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
+            <div className="line w-full h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
               <IoIosAirplane className='icon -mt-3' size={'25px'} />
             </div>
             <div className="circle rounded-full p-2 border-2"></div>
@@ -50,46 +51,51 @@ const FlightListings = () => {
           </div>
         </div>
         <div className="content-bar">
-          <h5>Avaliable Flights <span>6 Flights</span></h5>
-          <div className="content-list border p-2 py-5 bg-white rounded-xl">
+          <h5 className='text-black my-4 text-justify text-sm font-medium'>Avaliable Flights <span className='text-[#2875C7] text-xs font-semibold'>{Flights.length} Flights</span></h5>
+          {
+            Flights.map((flight, i) => (
+              <div className="content-list p-2 py-5 my-4 bg-white rounded-xl">
 
-            <div className="flight-details text-black flex justify-center">
-              <span className='text-xs font-light text-gray-400'>4h 20m</span>
-            </div>
-            
-            <div className="flight-icons pt-2 flex items-center">
-              <span className='font-bold text-sm border w-[70%] text-black'> 06: 45 am</span>
-              <div className="circle rounded-full p-2 border-2"></div>
-              <div className="line w-full border h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
-                <IoIosAirplane className='icon -mt-3' size={'25px'} />
-                <span className='font-light text-xs'>Non-stop</span>
+                <div className="flight-details text-black flex justify-center">
+                  <span className='text-xs font-light text-gray-400'>{flight.Duration}</span>
+                </div>
+                
+                <div className="flight-icons pt-2 flex items-center">
+                  <span className='font-bold text-sm w-[70%] text-black'> 06: 45 am</span>
+                  <div className="circle rounded-full p-2 border-2"></div>
+                  <div className="line w-full h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
+                    <IoIosAirplane className='icon -mt-3' size={'25px'} />
+                    <span className='font-light text-xs'>{flight.StopOverDuration}</span>
+                  </div>
+                  <div className="circle rounded-full p-2 border-2"></div>
+                  <span className='font-bold text-sm w-[70%] text-black'> 06: 45 am</span>
+                  
+                </div>
+                <div className="flight-icons px-3 my-1 flex text-blue-950 justify-between items-center">
+                  <span className='font-light'>{flight.DepartureAirportCode}</span>
+                  <span className='font-light'>{flight.ArrivalAirportCode}</span>
+                  
+                </div>
+
+                <div className="flight-details my-5 text-black flex justify-between">
+                  <div className="in-and-ou flex items-center gap-1">
+                    <h6 className='text-xs font-normal text-gray-500'>{flight.DepartureAirportName} &#183; {flight.FlightClass}</h6>
+
+                  </div>
+                  <div className="in-and-out flex items-center">
+                    <h5 className='font-semibold'>N{ flight.TicketFare}</h5>
+
+                  </div>
+                </div>
+                <div className="btn mt-8 w-full">
+                  <Link to={'/makepayment'} className='bg-blue-900 w-[80%] hover:bg-blue-950 text-white font-bold py-2 px-4 rounded'>
+                    Make Payment
+                  </Link>
+                </div>
               </div>
-              <div className="circle rounded-full p-2 border-2"></div>
-              <span className='font-bold text-sm w-[70%] text-black'> 06: 45 am</span>
-              
-            </div>
-            <div className="flight-icons px-3 border my-1 flex text-blue-950 justify-between items-center">
-              <span className='font-light'>NBO</span>
-              <span className='font-light'>MBA</span>
-              
-            </div>
 
-            <div className="flight-details my-5 text-black flex justify-between">
-              <div className="in-and-out border flex items-center gap-1">
-                <h6 className='text-xs font-normal text-gray-500'>Kenya Airways &#183; Economy</h6>
-
-              </div>
-              <div className="in-and-out border flex items-center">
-                <h5 className='font-semibold'>N350,000.00</h5>
-
-              </div>
-            </div>
-            <div className="btn mt-8">
-              <Link to={'/makepayment'} className='bg-blue-900 hover:bg-blue-950 text-white font-bold py-2 px-4 rounded'>
-                Make Payment
-              </Link>
-            </div>
-          </div>
+            ))
+          }
         </div>
       </div>
     </Layout>

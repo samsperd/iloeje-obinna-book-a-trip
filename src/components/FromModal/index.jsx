@@ -13,7 +13,7 @@ const FromModal = ({ handleFromModal }) => {
         <div className="airport-lists text-black px-3 py-2">
           {
             airports.map((airport, i) => (
-            <div key={i} className="airport-list border-b py-2 flex justify-between">
+            <div key={i} className="airport-list cursor-pointer hover:bg-white/60 border-b py-2 flex justify-between">
               <div className="location p-2">
                 <div className="text-justify text-lg">
                   {airport.StateName}
