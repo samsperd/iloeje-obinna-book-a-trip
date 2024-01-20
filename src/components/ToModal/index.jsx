@@ -1,11 +1,11 @@
 import React from 'react'
 import airports from '../../data/airports.json';
 
-const FromModal = ({ handleFromModal }) => {
+const ToModal = ({ handleToModal }) => {
   return (
     <div className="from w-screen pb-[6.2rem] z-50 bg-white overflow-y-scroll fixed top-0 bottom-0 left-0 right-0">
         <div className='h-16 text-lg text-black font-normal'>
-          <span onClick={handleFromModal} className="close px-4 py-3 text-lg absolute top-0 right-0">
+          <span onClick={handleToModal} className="close px-4 py-3 text-lg absolute top-0 right-0">
             &times;
           </span>
         </div>
@@ -35,4 +35,4 @@ const FromModal = ({ handleFromModal }) => {
   )
 }
 
-export default FromModal
+export default ToModal

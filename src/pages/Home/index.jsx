@@ -6,11 +6,14 @@ import { CiCalendarDate } from "react-icons/ci";
 import Layout from '../../layout';
 import DatePicker from '../../components/DatePicker';
 import FromModal from '../../components/FromModal';
+import ToModal from '../../components/ToModal';
 
 const Home = () => {
   const [fromModal, setFromModal] = useState(false);
   const [toModal, setToModal] = useState(false);
   const [departureModal, setDepartureModal] = useState(false);
+
+  
 
   const handleFromModal = () => {
     setFromModal(!fromModal)
@@ -98,6 +101,11 @@ const Home = () => {
     {
       fromModal ? (
         <FromModal handleFromModal={handleFromModal} />
+      ) : null
+    }
+    {
+      toModal ? (
+        <ToModal handleToModal={handleToModal} />
       ) : null
     }
 
