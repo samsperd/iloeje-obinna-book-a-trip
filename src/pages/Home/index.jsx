@@ -12,7 +12,9 @@ const Home = () => {
   const [fromModal, setFromModal] = useState(false);
   const [toModal, setToModal] = useState(false);
   const [departureModal, setDepartureModal] = useState(false);
-
+  const [adults, setAdults] = useState(0);
+  const [kids, setKids] = useState(0);
+  const [infants, setInfants] = useState(0)
   
 
   const handleFromModal = () => {
@@ -64,27 +66,27 @@ const Home = () => {
 
       <div className="passengers flex flex-col gap-5">
         <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <input className='w-full outline-none appearance-none border-none bg-white' type="text" name='to' placeholder='Adults' />
+          <div className='w-full flex text-gray-400 items-center border-none bg-white'>Adults</div>
           <div className="flex">
-            <div className="minus bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</div>
-            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">0</div>
-            <div className="minus bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</div>
+            <button onClick={() => setAdults(adults++)} className="minus outline-none appearance-none bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</button>
+            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">{adults}</div>
+            <button onClick={() => setAdults(adults++)} className="plus outline-none appearance-none bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</button>
           </div>
         </div>
         <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <input className='w-full outline-none appearance-none border-none bg-white' type="text" name='to' placeholder='Children' />
+          <div className='w-full flex items-center border-none text-gray-400 bg-white'>Children</div>
           <div className="flex">
-            <div className="minus bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</div>
-            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">0</div>
-            <div className="minus bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</div>
+            <button onClick={() => setKids(kids--)} className="minus outline-none appearance-none bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</button>
+            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">{kids}</div>
+            <button onClick={() => setKids(kids++)} className="plus outline-none appearance-none bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</button>
           </div>
         </div>
         <div className="flex w-full border bg-white p-2 rounded-lg text-black">
-          <input className='w-full outline-none appearance-none border-none bg-white' type="text" name='to' placeholder='Infants' />
+          <div className='w-full flex items-center border-none text-gray-400 bg-white'>Infants</div>
           <div className="flex">
-            <div className="minus bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</div>
-            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">0</div>
-            <div className="minus bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</div>
+            <button onClick={() => setInfants(infants--)} className="minus outline-none appearance-none bg-gray-100 hover:bg-gray-200 text-black text-3xl cursor-pointer grid place-items-center py-[0.05rem] px-3 rounded">-</button>
+            <div className="counter text-black text-3xl grid place-items-center py-[0.05rem] px-3 rounded">{infants}</div>
+            <button onClick={() => setInfants(infants++)} className="plus outline-none appearance-none bg-gray-200 hover:bg-gray-300 text-black text-3xl grid cursor-pointer place-items-center py-[0.05rem] px-3 rounded-lg">+</button>
           </div>
         </div>
 
