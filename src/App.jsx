@@ -6,7 +6,7 @@ import {
 import Home from "./pages/Home";
 import FlightListings from './pages/FlightListings';
 import MakePayment from './pages/MakePayment';
-import Dates from './pages/Dates';
+import Dates from './components/DatePicker';
 
 const router = createBrowserRouter([
   {

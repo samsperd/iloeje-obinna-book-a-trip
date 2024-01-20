@@ -14,7 +14,7 @@
     background: #FFFFFF;
     width: 100% !important;
     /* border: solid 1px #CCCCCC; */
-    box-shadow: 0 0 15px 0 #C0C0C0;
+    /* box-shadow: 0 0 15px 0 #C0C0C0; */
     text-align: center;
 }
 .calendar header {

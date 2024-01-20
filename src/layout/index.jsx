@@ -7,16 +7,16 @@ const Layout = ({bottom, children}) => {
   return (
     <>
     
-    <div className="w-full h-screen block md:hidden bg-gray-100 py-10 px-7">
+    <div className="fixed top-0 bottom-0 left-0 right-0 block md:hidden bg-gray-100 py-10 px-7">
       { children }
-    </div>
       {
-        bottom !== "" ?
+        bottom !== undefined ?
         (
           <FooterButton title={bottom}></FooterButton>
 
         ) : null
       }
+    </div>
     </>
   )
 }

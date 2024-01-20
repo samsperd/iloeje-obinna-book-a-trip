@@ -1,14 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar';
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa";
 import { MdAirlineSeatReclineNormal } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
-import airports from './../../data/airports.json';
-import { Link } from 'react-router-dom';
-import FooterButton from '../../components/FooterButton';
 import Layout from '../../layout';
+import DatePicker from '../../components/DatePicker';
+import FromModal from '../../components/FromModal';
 
 const Home = () => {
+  const [fromModal, setFromModal] = useState(false);
+  const [toModal, setToModal] = useState(false);
+  const [departureModal, setDepartureModal] = useState(false);
+
+  const handleFromModal = () => {
+    setFromModal(!fromModal)
+  }
+  const handleToModal = () => {
+    setToModal(!toModal)
+  }
+
+  const handleDepartureModal = () => {
+    setDepartureModal(!departureModal)
+  }
+
   return (
     <Layout bottom={"Search"}>
     <Navbar title={"Search Flight"}></Navbar>
@@ -16,21 +30,21 @@ const Home = () => {
     <div className="flex flex-col text-justify gap-5 w-full">
       <div className="flex flex-col gap-5">
 
-        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+        <button onClick={handleFromModal} className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
           <FaPlaneDeparture className='icon' size={'20px'} />
           <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
             From
           </div>
 
         </button>
-        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+        <button onClick={handleToModal} className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
           <FaPlaneArrival className='icon' size={'20px'} />
           <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
             To
           </div>
 
         </button>
-        <button className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
+        <button onClick={handleDepartureModal} className="flex no-underline w-full border text-sm bg-white p-2 rounded-lg text-gray-300 outline-none appearance-none border-none">
           <CiCalendarDate className='icon' size={'20px'} />
           <div className='w-full px-1 text-justify outline-none appearance-none border-none text-gray-300 bg-white'>
             Departure
@@ -75,7 +89,19 @@ const Home = () => {
       </div>
     </div>
 
-    {/* <FooterButton title={"Search"} /> */}
+    {
+      departureModal ? (
+        <DatePicker handleDepartureModal={handleDepartureModal} />
+
+      ) : null
+    }
+    {
+      fromModal ? (
+        <FromModal handleFromModal={handleFromModal} />
+      ) : null
+    }
+
+
 </Layout>
 
   )

@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import Week from './Week';
 import DayNames from './DayNames';
+import FooterButton from '../FooterButton';
 
-const Calendar = () => {
+const DatePicker = ({ handleDepartureModal }) => {
   const currentMonth = moment();
   const monthsToShow = [currentMonth.clone()];
 
@@ -12,14 +13,15 @@ const Calendar = () => {
     monthsToShow.push(currentMonth.clone().add(i, 'month'));
   }
 
-  const [state, setState] = useState({
+  const [selection, setSelection] = useState({
     months: monthsToShow,
     selected: moment().startOf('day'),
-  });
+    
+  })
 
   const select = (day) => {
-    setState({
-      ...state,
+    setSelection({
+      ...selection,
       selected: day.date,
     });
   };
@@ -31,7 +33,7 @@ const Calendar = () => {
     let count = 0;
     let monthIndex = date.month();
 
-    const { selected } = state;
+    const { selected } = selection;
 
     while (!done) {
       weeks.push(
@@ -54,7 +56,7 @@ const Calendar = () => {
   };
 
   const renderMonths = () => {
-    const { months } = state;
+    const { months } = selection;
 
     return months.map((month) => (
       <div key={month.format('YYYY-MM')} className="month-container my-6 text-justify">
@@ -69,7 +71,13 @@ const Calendar = () => {
   };
 
   return (
-    <div className="dates w-screen absolute top-0 bottom-0 left-0 right-0">
+    <div className="dates w-screen pb-[6.2rem] z-50 bg-white overflow-y-scroll fixed top-0 bottom-0 left-0 right-0">
+        <div className='p-3 text-lg text-black font-normal'>
+            Travel Dates
+          <span onClick={handleDepartureModal} className="close px-4 py-3 text-lg absolute top-0 right-0">
+            &times;
+          </span>
+        </div>
         <section className="calendar">
         <header className="header">
             <DayNames />
@@ -77,9 +85,11 @@ const Calendar = () => {
         {renderMonths()}
         </section>
 
+        <FooterButton title={'Confirm'} />
+
     </div>
   );
 };
 
-export default Calendar;
+export default DatePicker;
 

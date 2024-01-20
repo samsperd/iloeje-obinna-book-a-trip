@@ -3,10 +3,11 @@ import Navbar from '../../components/Navbar'
 import { IoIosAirplane } from 'react-icons/io'
 import { MdAirlineSeatReclineNormal, MdCompareArrows, MdOutlineCompareArrows } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import Layout from '../../layout'
 
 const FlightListings = () => {
   return (
-    <>
+    <Layout>
       <Navbar title={'Flight Listings'}></Navbar>
       <div className="content">
         <div className="heading-bar border p-2 bg-white rounded-xl">
@@ -91,7 +92,7 @@ const FlightListings = () => {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 
