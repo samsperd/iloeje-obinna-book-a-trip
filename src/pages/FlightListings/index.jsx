@@ -81,12 +81,12 @@ const FlightListings = () => {
             </div>
           </div>
           <div className="flight-details my-3 text-black flex justify-between">
-            <div className="in-and-out border flex items-center gap-1">
+            <div className="in-and-out flex items-center gap-1">
             <MdOutlineCompareArrows className='icon p-2 bg-slate-200 rounded' size={'30px'} />
               <h5 className='font-semibold text-[10px]'>Sat, 12 Mar</h5>
 
             </div>
-            <div className="in-and-out border flex items-center">
+            <div className="in-and-out flex items-center">
             <MdAirlineSeatReclineNormal className='icon text-[#002c5a]' size={'25px'} />
               <h6 className='text-[8px] text-justify font-semibold'>3 Adults &#183; 2 Children &#183; 1 infant</h6>
 
