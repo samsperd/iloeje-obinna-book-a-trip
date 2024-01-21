@@ -1,9 +1,7 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ISSUES I ENCOUNTERED
 
-Currently, two official plugins are available:
+- I had issues with the data provided in the airport.json. Due to the inconsistency of the data from the airport.json and the flight-listing.json file, I was unable to select information (Departure airport and Arrival Airport) from the popup modal, then search/find the airports and show results in the FlightListing page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 # iloeje-obinna-book-a-trip

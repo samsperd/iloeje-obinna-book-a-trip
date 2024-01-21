@@ -27,6 +27,26 @@ const FlightListings = () => {
     
     return dateTime.format("hh:mm A");
   }
+
+  const stoping = (value) => {
+    if (value > 0) {
+      return `${value} Stops`
+    } else if (value === 0) {
+      return "Non-stop"
+    }
+  };
+
+  const colorClass = (classe) => {
+    if (classe === "First") {
+      return "text-[#002c5a]"
+    } else if (classe === "Economy") {
+      return "text-gray-400"
+    } else if(classe === "Business") {
+      return "text-green-400"
+    } else {
+      return "text-yello-200"
+    }
+  }
   
 
 
@@ -80,7 +100,7 @@ const FlightListings = () => {
               <div key={i} className="content-list p-2 py-5 my-4 bg-white rounded-xl">
 
                 <div className="flight-details text-black flex justify-center">
-                  <span className='text-xs font-light text-gray-400'>{flight.Duration}</span>
+                  <span className='text-xs font-light text-gray-400'>{flight.StopOverDuration}</span>
                 </div>
                 
                 <div className="flight-icons pt-2 flex items-center">
@@ -88,7 +108,7 @@ const FlightListings = () => {
                   <div className="circle rounded-full border-[#002c5a] p-2 border-2"></div>
                   <div className="line w-full h-0 grid place-items-center text-black  border-t-[1px] border-dashed">
                     <IoIosAirplane className='icon text-[#002c5a] -mt-3' size={'25px'} />
-                    <span className='font-light text-xs'>Non-stop</span>
+                    <span className='font-light text-xs'>{stoping(flight.StopOvers)}</span>
                   </div>
                   <div className="circle border-[#002c5a] rounded-full p-2 border-2"></div>
                   <span className='font-bold text-sm w-[70%] text-black'> {formattedTime(flight.ArrivalDate)}</span>
@@ -102,7 +122,7 @@ const FlightListings = () => {
 
                 <div className="flight-details my-5 text-black flex justify-between">
                   <div className="in-and-ou flex items-center gap-1">
-                    <h6 className='text-xs font-normal text-gray-500'>{flight.DepartureAirportName} &#183; {flight.FlightClass}</h6>
+                    <h6 className='text-xs font-normal text-gray-500'>{flight.DepartureAirportName} &#183; <span className={colorClass(flight.FlightClass)}>{flight.FlightClass}</span></h6>
 
                   </div>
                   <div className="in-and-out flex items-center">
@@ -110,8 +130,8 @@ const FlightListings = () => {
 
                   </div>
                 </div>
-                <div className="btn mt-8 w-full">
-                  <Link to={`/makepayment/${i}`} className='bg-[#002c5a] w-[80%] hover:bg-blue-950 text-white font-bold py-2 px-4 rounded'>
+                <div className="btn mt-8 w-full text-center flex justify-center">
+                  <Link to={`/makepayment/${i}`} className='bg-[#002c5a] w-[90%] block hover:bg-blue-950 text-white font-bold py-1 rounded'>
                     Make Payment
                   </Link>
                 </div>
