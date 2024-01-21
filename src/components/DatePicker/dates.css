@@ -32,7 +32,7 @@
 .calendar header .month-display {
     align-items: center;
     height: 40px;
-    background: #2875C7;
+    background: #002c5a;
 }
 .calendar header .month-label {
     flex: 1;

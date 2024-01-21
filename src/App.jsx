@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <FlightListings />,
   },
   {
-    path: "/makepayment",
+    path: "/makepayment/:id",
     element: <MakePayment />,
   },
   {
